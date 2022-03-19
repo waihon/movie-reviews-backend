@@ -7,7 +7,11 @@ async function main() {
   dotenv.config();
 
   const client = new mongodb.MongoClient(
-    process.env.MOVIEREVIEWS_DB_URI
+    process.env.MOVIEREVIEWS_DB_URI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
   );
   const port = process.env.PORT || 8000;
 
