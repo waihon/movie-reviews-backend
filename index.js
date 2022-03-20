@@ -2,6 +2,7 @@ import app from './server.js';
 import mongodb from 'mongodb';
 import dotenv from 'dotenv';
 import MoviesDAO from './dao/moviesDAO.js'
+import ReviewsDAO from './dao/reviewsDAO.js';
 
 async function main() {
   // Load in the environment variables
@@ -23,6 +24,7 @@ async function main() {
     await client.connect();
     console.log('Connected to MongoDB');
     await MoviesDAO.injectDB(client);
+    await ReviewsDAO.injectDB(client);
 
     // app.listen starts the server and listens via the specified port.
     // The callback function provided in the 2nd argument is executed when
