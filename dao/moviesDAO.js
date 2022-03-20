@@ -25,6 +25,8 @@ export default class MoviesDAO {
     moviesPerPage = 20,
   } = {}) {
     let query;
+    console.log('In MoviesDAO');
+    console.log(filters);
     if (filters) {
       if ('title' in filters) {
         // $search allows us to query for documents with specified field
@@ -39,6 +41,8 @@ export default class MoviesDAO {
         query = { 'rated': { $eq: filters['rated'] } };
         // Alternative: query = { 'rated': filters['rated'] }
       }
+
+      console.log(query);
 
       let cursor;
       try {
